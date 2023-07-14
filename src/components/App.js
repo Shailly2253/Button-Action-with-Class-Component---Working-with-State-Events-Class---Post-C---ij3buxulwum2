@@ -1,27 +1,29 @@
-import React, { Component } from 'react';
+import React, {Component, useState} from "react";
+import '../styles/App.css';
 
-class Button extends Component {
-  constructor(props) {
+class App extends Component {
+    constructor(props) {
     super(props);
     this.state = {
-      clicked: false
+      showPara: false
     };
     this.handleClick = this.handleClick.bind(this);
+	};
+ handleClick() {
+    this.setState({
+      showPara: true
+    });
   }
-
-  handleClick() {
-    this.setState({ clicked: true });
-  }
-
-  render() {
-    return (
-      <div>
-        <button id="click" onClick={this.handleClick}>Click me</button>
-        {this.state.clicked && <p id="para">Hello, I've learnt to use the full-stack evaluation tool. This makes me so happy</p>}
-      </div>
-    );
-  }
+    render() {
+    	return(
+    		<div id="main">
+			 <button id="click" onClick={this.handleClick}>Click Me!</button>
+        {this.state.showPara && <p id="para">Hello, I've learnt to use the full-stack evaluation tool. This makes me so happy</p>}
+      
+    		</div>
+    	);
+    }
 }
 
-export default Button;
 
+export default App;
